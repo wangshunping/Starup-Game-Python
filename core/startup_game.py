@@ -61,7 +61,10 @@ class StartUpGame(object):
         old_remain_difficulty = self.__project.remain_difficulty
         print u"第%s周开始了，键盘的敲击声响起"%self.week
 
+        #: random events happen
         self.random_events()
+
+        #: weekly work
         self.weekly_work()
 
         self.__hire_sys.fire_or_not()
@@ -70,7 +73,7 @@ class StartUpGame(object):
         if (self.week%4 == 0):
             self.pay_salary()
 
-        forword = round(old_remain_difficulty - self.__project.remain_difficulty,0)
+        forword = round(old_remain_difficulty - self.__project.remain_difficulty, 0)
         print u"第",
         print_blue(self.week),
         print u"周结束了，成功完成了",

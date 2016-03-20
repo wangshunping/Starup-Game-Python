@@ -36,4 +36,7 @@ if __name__ == '__main__':
         start()
     if arguments['staff']:
         staff()
+    else:
+        ## whatever
+        start()
 

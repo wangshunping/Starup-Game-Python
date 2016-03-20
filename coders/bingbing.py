@@ -14,7 +14,7 @@ class bingbing(Coder):
 
     @classmethod
     def work(cls, remain_difficulty):
-        seed = randint(0,9)
+        seed = randint(0, 9)
         if seed > 4:
             forward = randint(10, 100)
             print u"%s灵感大发，成功将项目推进#%s"\

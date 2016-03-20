@@ -14,7 +14,7 @@ class pc(Coder):
 
     @classmethod
     def work(cls, remain_difficulty):
-        seed = randint(0,9)
+        seed = randint(0, 9)
         if seed > 4:
             forward = randint(10, 100)
             print u"%s一边上学一边写代码，项目进度推进了%s"\

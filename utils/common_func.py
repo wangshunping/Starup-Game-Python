@@ -8,6 +8,7 @@
 import sys
 from utils.my_color_print import *
 
+
 class keyboard:
     @staticmethod
     def next():
@@ -27,4 +28,11 @@ class keyboard:
     def input():
         print_green(u'(---请输入---)')
         user_input = raw_input().strip()
+
+        while 1:
+            if not user_input:
+                print_green(u'(---输入内容为空，请重新输入---)')
+                user_input = raw_input().strip()
+            else:
+                break
         return user_input

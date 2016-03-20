@@ -7,6 +7,7 @@
 import os
 from utils.common_func import keyboard
 from utils.my_color_print import print_red_on_cyan
+from random import randint
 
 class HireSystem(object):
     def __init__(self, game):
@@ -66,26 +67,54 @@ class HireSystem(object):
             self.fire()
 
     def hire(self):
-        if not self.could_hire():
-            return
         print u"你可以最多可以雇佣%s名员工，请谨慎选择:" %(self.max_coders)
         keyboard.next()
+
+        #: if has coder could hire
+        if not self.could_hire():
+            return
+
+        #: if coder is too little
+        while len(self.coders) < self.min_coders:
+            print u'你至少需要%s名员工加入你的团队!' %(self.min_coders)
+            self._hire()
+
+        #: if exit hire
+        while len(self.coders) < self.max_coders:
+            print "------------------"
+            print "当前雇佣程序员人数 %s" %len(self.coders)
+            print "------------------"
+            print u"是否结束雇佣，确认按 Y"
+            if keyboard.confirm():
+                break
+            else:
+                self._hire()
+
+    def _hire(self):
+        coder = self.avaliable_coders[randint(0, len(self.avaliable_coders)-1)]
+        print '------'
+        print u"%s: %s 薪水： %s"%(coder.job, coder.name, coder.salary)
+        if keyboard.confirm():
+            self.coders.append(coder)
+            self.avaliable_coders.remove(coder)
+            print u"%s加入了你的团队。"%(coder.name)
+
+
+    def fire(self):
+        if not self.could_fire():
+            return
         for coder in self.avaliable_coders:
-            if not self.could_hire():
+            if not self.could_fire():
                 return
-            print '------'
+            print '--------'
             print u"%s: %s 薪水： %s"%(coder.job, coder.name, coder.salary)
             if keyboard.confirm():
-                self.coders.append(coder)
-                print u"%s加入了你的团队。"%(coder.name)
+                self.coders.pop(self.coders.index(coder))
+                print u"%s退出了你的团队。"%(coder.name)
             if len(self.coders) < self.min_coders:
                 print u'你至少需要%s名员工加入你的团队!' %(self.min_coders)
                 self.hire()
                 return
-
-
-    def fire(self):
-        pass
 
     def could_hire(self):
         return len(self.coders) < self.max_coders
@@ -100,7 +129,7 @@ class HireSystem(object):
         coder_list = [x.split('.')[0] for x in coder_list if ('init' not in x) and ('.pyc' not in x)]
         #print coder_list
         for coder in coder_list:
-            tmp =  __import__('coders.'+coder, {}, {}, [coder])
+            tmp = __import__('coders.'+coder, {}, {}, [coder])
 
             my_coders.append(getattr(tmp, coder))
         return my_coders
