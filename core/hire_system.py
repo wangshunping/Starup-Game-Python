@@ -78,7 +78,7 @@ class HireSystem(object):
             if keyboard.confirm():
                 self.coders.append(coder)
                 print u"%s加入了你的团队。"%(coder.name)
-            if self.coders < self.min_coders:
+            if len(self.coders) < self.min_coders:
                 print u'你至少需要%s名员工加入你的团队!' %(self.min_coders)
                 self.hire()
                 return

@@ -15,7 +15,7 @@ class lionelOne(Coder):
     @classmethod
     def work(cls, remain_difficulty):
         seed = randint(0, 9)
-        if seed > 0.5:
+        if seed > 4 :
             forward = randint(10, 100)
             print u"%s刚跑了8公里，精神状态良好，成功完成项目%s"\
                  %(cls.name, forward)
