@@ -12,6 +12,7 @@ from hire_system import HireSystem
 from projects.uber_beating import UberBeating
 from companies.fivecent import Fivecent
 
+
 class StartUpGame(object):
     def __init__(self):
         self.week = 0
