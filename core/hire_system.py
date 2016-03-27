@@ -103,7 +103,7 @@ class HireSystem(object):
     def fire(self):
         if not self.could_fire():
             return
-        for coder in self.avaliable_coders:
+        for coder in self.coders:
             if not self.could_fire():
                 return
             print '--------'
