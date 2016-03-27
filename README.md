@@ -15,24 +15,25 @@
 这是原版游戏的地址 : https://github.com/bydmm/Startup-Game 。
 
 
-# 进展
-
-2015-10-05
-
-> V 0.1
-
 ```
 python game.py start
 ```
+
 开始游戏
+
 ```
 python game.py staff
 ```
+
 查看贡献者名单
 
-# 环境
+[该项目源码贡献者](AUTHORS.rst) 
 
+[项目版本历史](HISTORY.rst)
+
+
+# 环境
  - 安装python2, pip
  - 运行pip install -r requirments.txt 安装依赖库
- - 运行python game.py开始游戏
+ - 运行python game.py start 开始游戏
  
