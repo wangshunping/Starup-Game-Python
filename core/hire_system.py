@@ -82,7 +82,7 @@ class HireSystem(object):
         #: if exit hire
         while len(self.coders) < self.max_coders:
             print "------------------"
-            print "当前雇佣程序员人数 %s" %len(self.coders)
+            print u"当前雇佣程序员人数 %s" %len(self.coders)
             print "------------------"
             print u"是否结束雇佣，确认按 Y"
             if keyboard.confirm():
